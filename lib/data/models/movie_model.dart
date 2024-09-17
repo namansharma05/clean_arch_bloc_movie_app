@@ -1,3 +1,5 @@
+import 'package:sample_project/domain/entities/movie.dart';
+
 class MovieModel {
   final int id;
   final String title;
@@ -29,5 +31,15 @@ class MovieModel {
       'overview': overview,
       'poster_path': posterPath,
     };
+  }
+
+  // convert MovieModel (data) to Movie (domain)
+  Movie toEntity() {
+    return Movie(
+      id: id,
+      title: title,
+      overview: overview,
+      posterPath: posterPath,
+    );
   }
 }

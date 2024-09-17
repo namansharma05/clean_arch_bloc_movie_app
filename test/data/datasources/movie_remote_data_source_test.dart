@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 // import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;
+import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:sample_project/core/core.errors/server_exception.dart';
 import 'package:sample_project/data/datasources/movie_remote_data_source.dart';
@@ -8,6 +9,7 @@ import 'package:sample_project/data/datasources/remote/movie_remote_data_source_
 
 import 'movie_remote_data_source_test.mocks.dart';
 
+@GenerateNiceMocks([MockSpec<http.Client>()])
 void main() {
   late MovieRemoteDataSource datasource;
   late MockClient mockHttpClient;

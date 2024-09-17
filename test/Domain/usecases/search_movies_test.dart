@@ -1,9 +1,11 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:sample_project/core/core.errors/server_failure.dart';
 import 'package:sample_project/domain/entities/movie.dart';
 import 'package:sample_project/domain/usecases/search_movies.dart';
 
-import 'get_trending_movies_test.mocks.dart';
+import 'get_popular_movies_test.mocks.dart';
 
 void main() {
   late SearchMovies usecase;
@@ -31,13 +33,14 @@ void main() {
 
   test('should get searched movies from the repository', () async {
     // arrange
-    when(mockMovieRepository.searchMovie(any)).thenAnswer((_) async => sMovies);
+    when(mockMovieRepository.searchMovie(any))
+        .thenAnswer((_) async => Right(sMovies));
 
     // act
     final result = await usecase(sQuery);
 
     // assert
-    expect(result, sMovies);
+    expect(result, isA<Right<Failure, List<Movie>>>());
     verify(mockMovieRepository.searchMovie(any));
     verifyNoMoreInteractions(mockMovieRepository);
   });

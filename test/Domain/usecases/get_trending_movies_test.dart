@@ -1,8 +1,10 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:sample_project/core/core.errors/server_failure.dart';
 import 'package:sample_project/domain/entities/movie.dart';
 import 'package:mockito/mockito.dart';
 import 'package:sample_project/domain/usecases/get_trending_movies.dart';
-import 'get_trending_movies_test.mocks.dart';
+import 'get_popular_movies_test.mocks.dart';
 
 void main() {
   late GetTrendingMovies usecase;
@@ -30,13 +32,13 @@ void main() {
   test('should get trending movies from the repository', () async {
     // arrange
     when(mockMovieRepository.getTrendingMovies())
-        .thenAnswer((_) async => tMoviesList);
+        .thenAnswer((_) async => Right(tMoviesList));
 
     // act
     final result = await usecase();
 
     // assert
-    expect(result, tMoviesList);
+    expect(result, isA<Right<Failure, List<Movie>>>());
     verify(mockMovieRepository.getTrendingMovies());
     verifyNoMoreInteractions(mockMovieRepository);
   });
