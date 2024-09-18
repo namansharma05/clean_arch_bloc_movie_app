@@ -11,7 +11,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
   MovieRemoteDataSourceImpl({required this.client});
 
   static const BASE_URL = "https://api.themoviedb.org/3";
-  static const API_KEY = "89fd87ec361186fb8aca4857d55a58ad";
+  static const API_KEY = "3832f51ebcd8fd81207c508e3104d02c";
 
   @override
   Future<List<MovieModel>> getPopularMovies() async {
@@ -33,7 +33,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
   @override
   Future<List<MovieModel>> getTrendingMovies() async {
     final response = await client.get(
-      Uri.parse("$BASE_URL/trending/movie/day?api_key=$API_KEY"),
+      Uri.parse("$BASE_URL/trending/movie/week?api_key=$API_KEY"),
     );
 
     if (response.statusCode == 200) {
@@ -43,6 +43,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
           .toList();
       return movies;
     } else {
+      print("inside get trending movies expection in data layer");
       throw ServerException();
     }
   }

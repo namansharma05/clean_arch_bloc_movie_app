@@ -12,7 +12,7 @@ class MoviesListWidget extends StatelessWidget {
       itemCount: movies.length,
       itemBuilder: (context, index) {
         final movie = movies[index];
-        print('https://image.tmdb.org/t/p/w500' + movie.posterPath);
+        // print('https://image.tmdb.org/t/p/w500' + movie.posterPath);
         return Container(
           //   color: const Color.fromRGBO(244, 67, 54, 1),
           height: 150,
