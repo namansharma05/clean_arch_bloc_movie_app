@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sample_project/domain/usecases/get_trending_movies.dart';
 import 'package:sample_project/presentation/bloc/trending_movies/trending_movies_event.dart';
 import 'package:sample_project/presentation/bloc/trending_movies/trending_movies_state.dart';
+
+import '../../../domain/usecases/get_trending_movies.dart';
 
 class TrendingMoviesBloc
     extends Bloc<TrendingMoviesEvent, TrendingMoviesState> {

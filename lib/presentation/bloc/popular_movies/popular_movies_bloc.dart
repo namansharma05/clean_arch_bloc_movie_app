@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sample_project/domain/usecases/get_popular_movies.dart';
-import 'package:sample_project/presentation/bloc/search_movies/popular_movies_event.dart';
-import 'package:sample_project/presentation/bloc/search_movies/popular_movies_state.dart';
+import 'package:sample_project/presentation/bloc/popular_movies/popular_movies_event.dart';
+import 'package:sample_project/presentation/bloc/popular_movies/popular_movies_state.dart';
+
+import '../../../domain/usecases/get_popular_movies.dart';
 
 class PopularMoviesBloc extends Bloc<PopularMoviesEvent, PopularMoviesState> {
   final GetPopularMovies getPopularMovies;

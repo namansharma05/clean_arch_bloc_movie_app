@@ -1,7 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sample_project/domain/usecases/Search_movies.dart';
 import 'package:sample_project/presentation/bloc/Search_movies/Search_movies_event.dart';
 import 'package:sample_project/presentation/bloc/Search_movies/Search_movies_state.dart';
+
+import '../../../domain/usecases/search_movies.dart';
 
 class SearchMoviesBloc extends Bloc<SearchMoviesEvent, SearchMoviesState> {
   final SearchMovies searchMovies;
