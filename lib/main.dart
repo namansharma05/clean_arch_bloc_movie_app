@@ -4,7 +4,6 @@ import 'package:sample_project/injection_container.dart';
 import 'package:sample_project/presentation/bloc/popular_movies/popular_movies_bloc.dart';
 import 'package:sample_project/presentation/bloc/popular_movies/popular_movies_event.dart';
 import 'package:sample_project/presentation/bloc/search_movies/search_movies_bloc.dart';
-import 'package:sample_project/presentation/bloc/search_movies/search_movies_event.dart';
 import 'package:sample_project/presentation/bloc/trending_movies/trending_movies_bloc.dart';
 import 'package:sample_project/presentation/bloc/trending_movies/trending_movies_event.dart';
 import 'package:sample_project/presentation/pages/home_screen.dart';
