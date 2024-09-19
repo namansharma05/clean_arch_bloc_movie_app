@@ -2,6 +2,8 @@ import 'package:sample_project/domain/entities/movie.dart';
 
 abstract class PopularMoviesState {}
 
+abstract class PopularMoviesActionState extends PopularMoviesState {}
+
 class PopularMoviesInitial extends PopularMoviesState {}
 
 class PopularMoviesLoading extends PopularMoviesState {}

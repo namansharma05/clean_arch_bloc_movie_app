@@ -9,24 +9,25 @@ class PopularMoviesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocBuilder<PopularMoviesBloc, PopularMoviesState>(
-        builder: (context, state) {
-          if (state is PopularMoviesLoading) {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          } else if (state is PopularMoviesLoaded) {
-            return MoviesListWidget(movies: state.movies);
-          } else if (state is PopularMoviesError) {
-            return Center(
-              child: Text(state.errorMessage),
-            );
-          } else {
-            return const SizedBox();
-          }
-        },
-      ),
+    return BlocConsumer<PopularMoviesBloc, PopularMoviesState>(
+      listenWhen: (previous, current) => current is PopularMoviesActionState,
+      buildWhen: (previous, current) => current is! PopularMoviesActionState,
+      listener: (context, state) {},
+      builder: (context, state) {
+        if (state is PopularMoviesLoading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (state is PopularMoviesLoaded) {
+          return MoviesListWidget(movies: state.movies);
+        } else if (state is PopularMoviesError) {
+          return Center(
+            child: Text(state.errorMessage),
+          );
+        } else {
+          return const SizedBox();
+        }
+      },
     );
   }
 }

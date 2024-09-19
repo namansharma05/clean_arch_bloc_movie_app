@@ -7,7 +7,7 @@ import 'package:sample_project/presentation/bloc/search_movies/search_movies_blo
 import 'package:sample_project/presentation/bloc/search_movies/search_movies_event.dart';
 import 'package:sample_project/presentation/bloc/trending_movies/trending_movies_bloc.dart';
 import 'package:sample_project/presentation/bloc/trending_movies/trending_movies_event.dart';
-import 'package:sample_project/presentation/pages/search_movies_screen.dart';
+import 'package:sample_project/presentation/pages/home_screen.dart';
 
 void main() {
   init();
@@ -41,13 +41,10 @@ class MyApp extends StatelessWidget {
               ),
           ),
           BlocProvider(
-            create: (context) => getIt<SearchMoviesBloc>()
-              ..add(
-                FetchSearchMovies('Avengers'),
-              ),
+            create: (context) => getIt<SearchMoviesBloc>(),
           ),
         ],
-        child: SearchMoviesScreen(),
+        child: HomeScreen(),
       ),
     );
   }

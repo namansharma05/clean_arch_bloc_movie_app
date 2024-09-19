@@ -2,6 +2,8 @@ import 'package:sample_project/domain/entities/movie.dart';
 
 abstract class SearchMoviesState {}
 
+abstract class SearchMoviesActionState extends SearchMoviesState {}
+
 class SearchMoviesInitial extends SearchMoviesState {}
 
 class SearchMoviesLoading extends SearchMoviesState {}
@@ -17,3 +19,5 @@ class SearchMoviesError extends SearchMoviesState {
 
   SearchMoviesError(this.errorMessage);
 }
+
+class SearchMoviesButtonClickedState extends SearchMoviesActionState {}

@@ -9,6 +9,10 @@ class SearchMovies {
   SearchMovies(this.repository);
 
   Future<Either<Failure, List<Movie>>> call(String query) async {
-    return await repository.searchMovie(query);
+    print("search movies class query is " + query);
+    final result = await repository.searchMovie(query);
+    print("search movies class");
+    print(result);
+    return result;
   }
 }

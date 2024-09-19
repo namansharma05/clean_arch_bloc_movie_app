@@ -11,7 +11,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
   MovieRemoteDataSourceImpl({required this.client});
 
   static const BASE_URL = "https://api.themoviedb.org/3";
-  static const API_KEY = "3832f51ebcd8fd81207c508e3104d02c";
+  static const API_KEY = "5345869845dc689d0e7156b11bff9736";
 
   @override
   Future<List<MovieModel>> getPopularMovies() async {
@@ -50,6 +50,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
 
   @override
   Future<List<MovieModel>> searchMovies(String query) async {
+    print("movie remote data source impl query is " + query);
     final response = await client.get(
       Uri.parse("$BASE_URL/search/movie?query=$query&api_key=$API_KEY"),
     );
@@ -59,6 +60,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
       final List<MovieModel> movies = (responseBody['results'] as List)
           .map((movie) => MovieModel.fromJson(movie))
           .toList();
+      print(movies);
       return movies;
     } else {
       throw ServerException();

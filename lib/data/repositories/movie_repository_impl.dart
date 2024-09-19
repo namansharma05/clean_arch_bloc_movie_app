@@ -39,11 +39,14 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<Either<Failure, List<Movie>>> searchMovie(String query) async {
+    print("movie repository impl query is " + query);
     try {
       final List<MovieModel> movieModel =
           await remoteDataSource.searchMovies(query);
       final List<Movie> movies =
           movieModel.map((movie) => movie.toEntity()).toList();
+      print("movie repository imple");
+      print(movies);
       return Right(movies);
     } on ServerException {
       return Left(ServerFailure());

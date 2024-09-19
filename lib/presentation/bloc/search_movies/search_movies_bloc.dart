@@ -13,6 +13,7 @@ class SearchMoviesBloc extends Bloc<SearchMoviesEvent, SearchMoviesState> {
 
   Future<void> fetchSearchMovies(
       FetchSearchMovies event, Emitter<SearchMoviesState> emit) async {
+    print("event query is " + event.query);
     emit(SearchMoviesLoading());
     final failureOrMovies = await searchMovies(event.query);
     failureOrMovies.fold(

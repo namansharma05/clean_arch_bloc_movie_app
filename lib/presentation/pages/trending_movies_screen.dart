@@ -9,8 +9,8 @@ class TrendingMoviesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: BlocBuilder<TrendingMoviesBloc, TrendingMoviesState>(
+    return SizedBox(
+      child: BlocBuilder<TrendingMoviesBloc, TrendingMoviesState>(
         builder: (context, state) {
           if (state is TrendingMoviesLoading) {
             return const Center(
